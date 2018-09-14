@@ -59,7 +59,7 @@ function makeHtmlBoard() {
 
       setTimeout(function() {
         event.target.style.background = '';
-      }, 500);
+      }, 1000);
     },
     false
   );

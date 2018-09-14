@@ -10,9 +10,8 @@ td {
 
 .piece {
   /* TODO: make into circles */
-  margin: 5px;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   border-radius: 25px;
 }
 
@@ -27,6 +26,16 @@ td {
 #column-top * {
   border-color: grey;
   border-style: dotted;
+}
+
+#board * :not(.piece) {
+  border-radius: 25px;
+  background-color: white;
+}
+
+#board {
+  background-color: skyblue;
+  border-radius: 15px;
 }
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
 
