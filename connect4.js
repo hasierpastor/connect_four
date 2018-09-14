@@ -5,6 +5,7 @@
  * board fills (tie)
  */
 
+//mouser enter
 const WIDTH = 7;
 const HEIGHT = 6;
 
@@ -35,6 +36,8 @@ function makeHtmlBoard() {
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement('td');
     headCell.setAttribute('id', x);
+    headCell.setAttribute('onmouseover', "this.bgColor = 'orange'");
+    headCell.setAttribute('onmouseout', "this.bgColor = 'white'");
     top.append(headCell);
   }
   boardHTML.append(top);
@@ -49,22 +52,6 @@ function makeHtmlBoard() {
     }
     boardHTML.append(row);
   }
-
-  let hoverTarget = document.getElementById('column-top'); // variable to find top column
-  hoverTarget.addEventListener(
-    'mouseover',
-    function(event) {
-      // highlight the mouseover target
-      event.target.style.background = 'orange';
-
-      setTimeout(function() {
-        event.target.style.background = '';
-      }, 1000);
-    },
-    false
-  );
-
-  hoverTarget.style.border = 'thick solid #0000FF';
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
