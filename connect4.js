@@ -49,6 +49,23 @@ function makeHtmlBoard() {
     }
     boardHTML.append(row);
   }
+
+  let hoverTarget = document.getElementById('column-top'); // variable to find top column
+  hoverTarget.style.borderColor = 'grey';
+  hoverTarget.addEventListener(
+    'mouseover',
+    function(event) {
+      // highlight the mouseover target
+      event.target.style.background = 'orange';
+
+      setTimeout(function() {
+        event.target.style.background = '';
+      }, 500);
+    },
+    false
+  );
+
+  hoverTarget.style.border = 'thick solid #0000FF';
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
@@ -122,13 +139,9 @@ function handleClick(evt) {
 }
 
 function checkTie(board) {
-  for (let i = 0; i < board.length; i++) {
-    console.log(
-      board[i].every(function(val) {
-        return val !== null;
-      })
-    );
-  }
+  board[0].every(function(val) {
+    return val !== null;
+  });
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
