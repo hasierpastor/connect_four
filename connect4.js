@@ -109,24 +109,12 @@ function handleClick(evt) {
   if (y === null) {
     return;
   }
-  currPlayer === 1 ? (currPlayer = 2) : (currPlayer = 1);
+
   // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
   placeInTable(y, x);
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
   if (checkTie(boardJS)) endGame(`It's a tie!`);
-
-  // if (
-  //   boardJS.forEach(function(val) {
-  //     return val.every(function(element) {
-  //       return element !== null;
-  //     });
-  //   })
-  // ) {
-  //   endGame(`It's a tie!`);
-  // }
 
   // check for win
   if (checkForWin()) {
@@ -134,9 +122,10 @@ function handleClick(evt) {
   }
 
   // switch players
-  // TODO: switch currPlayer 1 <-> 2
+  currPlayer === 1 ? (currPlayer = 2) : (currPlayer = 1);
 }
 
+//function that checks for tie
 function checkTie(board) {
   board[0].every(function(val) {
     return val !== null;
