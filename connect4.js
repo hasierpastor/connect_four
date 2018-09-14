@@ -51,7 +51,6 @@ function makeHtmlBoard() {
   }
 
   let hoverTarget = document.getElementById('column-top'); // variable to find top column
-  hoverTarget.style.borderColor = 'grey';
   hoverTarget.addEventListener(
     'mouseover',
     function(event) {
